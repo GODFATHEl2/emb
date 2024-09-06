@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360 Viewer</title>
+  <!-- Include SpriteSpin library for 360-degree view -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/spritejs/3.8.3/spritejs.min.js"></script>
+  <style>
+    /* Add some basic styling */
+    #360-view {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <!-- The container for the 360 viewer -->
+  <div id="360-view"></div>
+
+  <script>
+    // Array of image URLs for the 360-degree view
+    var imageUrls = [];
+    var baseUrl = "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/";
+    var fileNameBase = "2025_volvo_ex30_trn-";
+    var fileExtension = ".jpg?csf=1&web=1&e=hprZ0r";
+
+    // Loop through and create the array of image URLs from 3 to 36
+    for (var i = 3; i <= 36; i++) {
+      imageUrls.push(baseUrl + fileNameBase + i + fileExtension);
+    }
+
+    // Initialize SpriteSpin for the 360-degree view
+    SpriteSpin.create({
+      target: "#360-view",       // Target the container
+      source: imageUrls,         // The array of images for the 360 view
+      width: 800,                // Viewer width
+      height: 500,               // Viewer height
+      frames: imageUrls.length,  // Number of frames (images)
+      sense: 1,                  // Sensitivity for mouse drag
+      responsive: true,          // Make the viewer responsive
+      animate: false,            // Disable auto-rotation
+      loop: false,               // Disable looping
+      enableCanvas: false        // Use image-based rendering
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360 Viewer with SpriteSpin</title>
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Include SpriteSpin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/spritespin/4.0.10/spritespin.min.js"></script>
+  <style>
+    /* Basic styling for the viewer */
+    #360-view {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Container for the 360 viewer -->
+  <div id="360-view"></div>
+
+  <script>
+    // Array of image URLs for the 360-degree view
+    var imageUrls = [];
+    var baseUrl = "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/";
+    var fileNameBase = "2025_volvo_ex30_trn-";
+    var fileExtension = ".jpg?csf=1&web=1&e=hprZ0r";
+
+    // Loop through and create the array of image URLs from 3 to 36
+    for (var i = 3; i <= 36; i++) {
+      imageUrls.push(baseUrl + fileNameBase + i + fileExtension);
+    }
+
+    // Initialize SpriteSpin for the 360-degree view
+    $('#360-view').spritespin({
+      source: imageUrls,      // Array of image URLs
+      width: 800,             // Width of the viewer
+      height: 500,            // Height of the viewer
+      frames: imageUrls.length,  // Total number of frames (images)
+      sense: -1,              // Reverse the drag direction (optional)
+      responsive: true,       // Make the viewer responsive
+      animate: false,         // Disable auto-rotation
+      loop: false,            // Disable looping
+    });
+  </script>
+
+</body>
+</html>
