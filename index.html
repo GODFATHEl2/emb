@@ -3,55 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>360 Viewer</title>
-  <!-- Include SpriteSpin library for 360-degree view -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/spritejs/3.8.3/spritejs.min.js"></script>
-  <style>
-    /* Add some basic styling */
-    #360-view {
-      width: 100%;
-      height: 500px;
-      border: 1px solid #ddd;
-    }
-  </style>
-</head>
-<body>
-  <!-- The container for the 360 viewer -->
-  <div id="360-view"></div>
-
-  <script>
-    // Array of image URLs for the 360-degree view
-    var imageUrls = [];
-    var baseUrl = "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/";
-    var fileNameBase = "2025_volvo_ex30_trn-";
-    var fileExtension = ".jpg?csf=1&web=1&e=hprZ0r";
-
-    // Loop through and create the array of image URLs from 3 to 36
-    for (var i = 3; i <= 36; i++) {
-      imageUrls.push(baseUrl + fileNameBase + i + fileExtension);
-    }
-
-    // Initialize SpriteSpin for the 360-degree view
-    SpriteSpin.create({
-      target: "#360-view",       // Target the container
-      source: imageUrls,         // The array of images for the 360 view
-      width: 800,                // Viewer width
-      height: 500,               // Viewer height
-      frames: imageUrls.length,  // Number of frames (images)
-      sense: 1,                  // Sensitivity for mouse drag
-      responsive: true,          // Make the viewer responsive
-      animate: false,            // Disable auto-rotation
-      loop: false,               // Disable looping
-      enableCanvas: false        // Use image-based rendering
-    });
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>360 Viewer with SpriteSpin</title>
   <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -73,15 +24,42 @@
 
   <script>
     // Array of image URLs for the 360-degree view
-    var imageUrls = [];
-    var baseUrl = "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/";
-    var fileNameBase = "2025_volvo_ex30_trn-";
-    var fileExtension = ".jpg?csf=1&web=1&e=hprZ0r";
-
-    // Loop through and create the array of image URLs from 3 to 36
-    for (var i = 3; i <= 36; i++) {
-      imageUrls.push(baseUrl + fileNameBase + i + fileExtension);
-    }
+    var imageUrls = [
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-3.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-4.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-5.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-6.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-7.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-8.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-9.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-10.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-11.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-12.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-13.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-14.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-15.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-16.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-17.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-18.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-19.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-20.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-21.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-22.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-23.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-24.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-25.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-26.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-27.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-28.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-29.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-30.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-31.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-32.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-33.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-34.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-35.jpg?csf=1&web=1&e=hprZ0r",
+      "https://intranet.volvocars.net/:i:/r/sites/TBA/Delade%20dokument/2025_volvo_ex30_trn-36.jpg?csf=1&web=1&e=hprZ0r"
+    ];
 
     // Initialize SpriteSpin for the 360-degree view
     $('#360-view').spritespin({
